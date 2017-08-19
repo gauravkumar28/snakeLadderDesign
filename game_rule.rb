@@ -1,0 +1,2 @@
+class GameRule
+end
