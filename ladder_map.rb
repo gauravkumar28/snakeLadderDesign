@@ -1,5 +1,5 @@
 class LadderMap
-  attr_accessible :ladder_hash
+  attr_accessor :ladder_hash
   def initialize
     @ladder_hash = {}
   end

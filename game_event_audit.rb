@@ -12,7 +12,7 @@ class GameEventAudit
   #   LADER='lader'
   # end
 
-  attr_accessible :events
+  attr_accessor :events
   def initialize
     @events = []
   end

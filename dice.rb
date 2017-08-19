@@ -1,6 +1,6 @@
 # DICE CLASS TO RETURN NEXT RANDOM MOVE FOR ANY PLAYER
 class Dice
-  attr_accessible :face
+  attr_accessor :face
   def initialize(face=nil)
     @face = face || 6
   end

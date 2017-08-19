@@ -3,7 +3,7 @@ class GameException < Exception
     LADDER_ALREADY_PRESENT = 'ladder_already_present'
     SNAKE_ALREADY_PRESENT = 'snake_already_present'
   end
-  attr_accessible :name
+  attr_accessor :name
   def initialize(name)
     @name = name
   end

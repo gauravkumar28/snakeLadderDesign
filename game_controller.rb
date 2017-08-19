@@ -1,5 +1,5 @@
 class GameController
-  attr_accessible :game
+  attr_accessor :game
   def initialize(game)
     @game =  game
   end
@@ -9,8 +9,7 @@ class GameController
     set_player_loc
   end
   
-  def end
-
+  def close
   end
 
   def play
@@ -19,18 +18,21 @@ class GameController
       cur_loc = cur_player.cur_loc
       next_move = game.next_move(cur_loc)
       break if(game.winner(next_move))
-      game.cur_player_idx = (game.cur_player_idx + 1) % (game.totel_players)
-
+      cur_player.cur_loc = next_move
+      puts "#{cur_player.name} moved from #{cur_loc} to #{cur_player.cur_loc}"
+      game.cur_player_idx = (game.cur_player_idx + 1) % (game.total_players)
+      #puts game.status
     end
     puts "#{cur_player.name} won the game"
+    close
   end
   
   private 
 
   def toss
-    totel_players = game.totel_players
-    game.cur_player = rand(totel_players)
-    puts "#{game.cur_player} won the toss"
+    total_players = game.total_players
+    game.cur_player_idx = rand(total_players)
+    puts "#{game.cur_player_idx} won the toss"
   end
 
   def set_player_loc

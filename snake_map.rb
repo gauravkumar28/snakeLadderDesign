@@ -1,5 +1,5 @@
 class SnakeMap
-  attr_accessible :snake_hash
+  attr_accessor :snake_hash
   def initialize
     @snake_hash = {}
   end
