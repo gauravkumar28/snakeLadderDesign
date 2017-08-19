@@ -1,16 +1,16 @@
 class Game
-  attr_accessible :board, :snake, :ladder, :player_list, :dice, :cur_player_idx
-  def initialze(board, snake, lader, dice)
+  attr_accessible :board, :snake_map, :ladder_map, :player_list, :dice, :cur_player_idx
+  def initialze(board, snake_map, ladder_map, dice)
     @board = board
-    @snake = snake
-    @lader = lader
+    @snake_map = snake_map
+    @ladder_map = ladder_map
     @dice = dice
   end
 
   def next_move(loc)
   	nxt_loc = ((loc + @dice.next_move ) <= @board.size) ? (loc + @dice.next_move ) : 0
-  	nxt_loc = snake.get(nxt_loc) if snake.get(nxt_loc).present?
-  	nxt_loc = ladder.get(nxt_loc) if ladder.get(nxt_loc).present?
+  	nxt_loc = snake_map.get(nxt_loc) if snake_map.get(nxt_loc).present?
+  	nxt_loc = ladder_map.get(nxt_loc) if ladder_map.get(nxt_loc).present?
   	nxt_loc
   end
 
